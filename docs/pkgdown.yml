@@ -1,0 +1,9 @@
+pandoc: '3.2'
+pkgdown: 2.1.2
+pkgdown_sha: ~
+articles:
+  covidanalysis_vignette: covidanalysis_vignette.html
+last_built: 2025-11-01T14:32Z
+urls:
+  reference: https://ETC5523-2025.github.io/assignment-4-packages-and-shiny-apps-Jingwei-z/reference
+  article: https://ETC5523-2025.github.io/assignment-4-packages-and-shiny-apps-Jingwei-z/articles
