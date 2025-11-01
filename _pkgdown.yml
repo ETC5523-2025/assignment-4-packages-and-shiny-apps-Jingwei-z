@@ -1,0 +1,35 @@
+url: https://ETC5523-2025.github.io/assignment-4-packages-and-shiny-apps-Jingwei-z/
+
+template:
+  bootstrap: 5
+  bootswatch: flatly
+
+home:
+  title: "COVID-19 Border Quarantine Analysis"
+  description: >
+    An interactive R package for exploring COVID-19 border quarantine effectiveness under different vaccination scenarios. Based on computational models from Zachreson et al. (2022).
+
+navbar:
+  left:
+    - text: "Reference"
+      href: reference/
+    - text: "Articles"
+      href: articles/
+  right:
+    - icon: fa-github
+      href: https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-Jingwei-z
+
+articles:
+  - title: "Analysis Guide"
+    contents:
+      - covidanalysis_vignette
+
+reference:
+  - title: "Main Function"
+    contents:
+      - run_app
+  - title: "Datasets"
+    contents:
+      - ob_timings
+      - ob_timings_summary
+      - ob_probs_travellers 

@@ -1,0 +1,123 @@
+---
+title: "COVID-19 Border Quarantine Analysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{COVID-19 Border Quarantine Analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 8,
+  fig.height = 6
+)
+```
+
+## Introduction
+
+This vignette demonstrates the use of the covidanalysis package for analyzing outbreak timing distributions and breach pathways in COVID-19 border quarantine systems. The analysis is based on computational models developed by Zachreson et al. (2022) that simulate quarantine operations and community transmission dynamics.
+
+The timing of outbreak events following quarantine breaches depends on several key parameters of the system, including vaccination coverage and vaccine efficacy. The source of the breach, whether originating from travellers or quarantine workers, also affects the overall risk profile. Understanding these relationships is essential for assessing the effectiveness of quarantine measures.
+
+## Data Overview
+
+To use this package, install it first from GitHub:
+
+```{r eval=FALSE}
+remotes::install_github("ETC5523-2025/assignment-4-packages-and-shiny-apps-Jingwei-z")
+```
+
+Then load the package and data:
+
+```{r setup}
+library(covidanalysis)
+library(dplyr)
+library(ggplot2)
+
+data(ob_timings)
+data(ob_timings_summary)
+data(ob_probs_travellers)
+
+head(ob_timings)
+head(ob_timings_summary)
+head(ob_probs_travellers)
+```
+
+## Understanding the Data
+
+The package includes three datasets sourced from Zenodo (DOI: 10.5281/zenodo.5802433). The `ob_timings` dataset contains raw breach times from computational simulations. For each combination of R₀, vaccine efficacy (VE), and population coverage, multiple outbreak simulations were conducted, producing a distribution of possible breach times.
+
+The `ob_timings_summary` dataset distills this distribution into two key statistics: t50_days and t95_days. These represent the 50th and 95th percentiles of the outbreak timing distribution. The 50th percentile indicates the median time until outbreak, while the 95th percentile captures the upper bound of the typical range. Together, they form a confidence interval describing when most outbreaks would occur under given conditions.
+
+The `ob_probs_travellers` dataset quantifies a different aspect: the probability that an infected individual successfully breaches quarantine and initiates community transmission. These probabilities are reported separately for travellers and workers, reflecting the different detection regimes each faces. Travellers undergo testing on specific days and may exit with false-negative results. Workers attend intermittently and face regular testing on attendance days, creating a different breach risk profile.
+
+## Examining Outbreak Timing Distributions
+
+The relationship between vaccination parameters and outbreak timing can be explored by filtering for specific scenarios:
+
+```{r timing_scenario}
+timing_data <- ob_timings_summary %>%
+  filter(R0 == 6, coverage == 0.5) %>%
+  select(VE, t50_days, t95_days) %>%
+  arrange(VE)
+
+print(timing_data)
+```
+
+This shows how, at a fixed R0 of 6 and 50% population coverage, increasing vaccine efficacy extends both the median and upper percentile of outbreak timing. The distance between t50 and t95 represents the spread of the distribution.
+
+## Visualizing Outbreak Timing Ranges
+
+The protective effect of vaccination becomes clear when visualizing these percentile ranges across coverage levels:
+
+```{r coverage_effect, fig.cap="Outbreak timing distribution ranges across vaccination coverage"}
+ob_timings_summary %>%
+  filter(R0 == 6) %>%
+  ggplot(aes(x = coverage, color = factor(VE))) +
+  geom_line(aes(y = t50_days), size = 1, linetype = "solid") +
+  geom_line(aes(y = t95_days), size = 1, linetype = "dashed") +
+  scale_y_log10() +
+  scale_color_viridis_d(name = "Vaccine\nEfficacy", labels = function(x) paste0(as.numeric(x) * 100, "%")) +
+  labs(
+    title = "Outbreak Timing Distribution (R0 = 6)",
+    x = "Population Vaccination Coverage",
+    y = "Days (log scale)",
+    subtitle = "Solid lines show median (t50), dashed lines show 95th percentile (t95)"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "right")
+```
+
+Solid lines represent median outbreak time (t50), while dashed lines represent the 95th percentile (t95). Different colors indicate different vaccine efficacy levels. The vertical separation between these lines indicates the width of the distribution. As coverage increases and vaccine efficacy improves, both curves shift upward, indicating that outbreaks become less likely in the near term.
+
+## Understanding Breach Pathways
+
+The probability of breaches differs between travellers and workers due to their different exposure and testing patterns:
+
+```{r breach_pathways}
+breach_data <- ob_probs_travellers %>%
+  filter(R0 == 6, coverage == 0.5) %>%
+  select(VE, traveller_ob_prob, worker_ob_prob) %>%
+  arrange(VE)
+
+print(breach_data)
+```
+
+Traveller-initiated breaches consistently show lower probability than worker-initiated breaches at the same parameter values. This reflects the structured testing regime for travellers upon entry and exit. However, both pathways remain relevant for risk assessment, and neither disappears entirely even at high vaccination levels.
+
+## Key Insights
+
+The outbreak timing distributions demonstrate that vaccination extends protection timelines substantially. The 95th percentile values are particularly important for planning purposes, as they represent scenarios where outbreaks take longer to manifest than the median case.
+
+Worker-initiated breaches represent a persistent risk pathway that cannot be entirely eliminated through vaccination alone. This reflects biological reality: breakthrough infections occur even in vaccinated individuals, and workers with facility contact face ongoing exposure. The distinction between traveller and worker pathways informs the design of testing and isolation protocols within quarantine systems.
+
+## Using the Interactive Application
+
+The Shiny application accompanying this package enables exploration of these relationships across the full parameter space. By selecting different R0 values, vaccine efficacy levels, and coverage percentages, users can observe how outbreak timing distributions and breach probabilities change. This interactive framework supports evidence-based evaluation of quarantine policies under different epidemiological and vaccination scenarios.
+
+## References
+
+Zachreson, C., Shearer, F. M., Price, D. J., Lydeamore, M. J., McVernon, J., McCaw, J., & Geard, N. (2022). COVID-19 in low-tolerance border quarantine systems: Impact of the Delta variant of SARS-CoV-2. Science Advances, 8(14), eabm3624. https://doi.org/10.1126/sciadv.abm3624

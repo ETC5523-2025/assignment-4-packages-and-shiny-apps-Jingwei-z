@@ -1,0 +1,28 @@
+Package: covidanalysis
+Type: Package
+Title: Interactive Analysis of COVID-19 Border Quarantine Data
+Version: 0.1.0
+Authors@R: 
+    person("Jingwei", "Zhao", 
+           email = "jzha0527@student.monash.edu", 
+           role = c("aut", "cre"))
+Description: An interactive tool for exploring COVID-19 border quarantine effectiveness under different vaccination scenarios. The package provides access to outbreak timing distributions and breach probability data from Zachreson et al. (2022) computational models, along with a Shiny application for interactive exploration and visualization.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends:
+    R (>= 3.5)
+Imports:
+    dplyr,
+    ggplot2,
+    shiny,
+    bslib,
+    DT
+Suggests:
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+URL: https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-Jingwei-z
+BugReports: https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-Jingwei-z/issues
