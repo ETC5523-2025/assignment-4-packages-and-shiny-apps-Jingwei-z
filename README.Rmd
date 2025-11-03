@@ -29,6 +29,20 @@ You can install the development version of covidanalysis from GitHub with:
 remotes::install_github("ETC5523-2025/assignment-4-packages-and-shiny-apps-Jingwei-z")
 ```
 
+## Quick Start
+
+```{r}
+library(covidanalysis)
+
+# Launch the interactive Shiny app
+run_app()
+
+# Or explore the data directly
+data(ob_timings_summary)
+head(ob_timings_summary)
+```
+
+
 ## Usage
 
 ### Launch the Shiny Application
@@ -56,7 +70,9 @@ head(ob_timings_summary)
 head(ob_probs_travellers)
 ```
 
-The ob_timings dataset contains the raw distribution of breach times from simulation. The ob_timings_summary dataset provides statistical summaries of these distributions at each parameter combination, expressed as the 50th and 95th percentiles. The ob_probs_travellers dataset quantifies the probability of outbreaks resulting from each type of breach.
+- `ob_timings`: Raw distribution of breach times from simulation, showing variability in outbreak timing
+- `ob_timings_summary`: Statistical summaries (50th and 95th percentiles) of outbreak timing at each parameter combination
+- `ob_probs_travellers`: Outbreak probabilities resulting from traveller and worker breach pathways
 
 ## Data Source
 

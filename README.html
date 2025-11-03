@@ -624,13 +624,44 @@ quarantine policy design.</p>
 with:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># install.packages(&quot;remotes&quot;)</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ETC5523-2025/assignment-4-packages-and-shiny-apps-Jingwei-z&quot;</span>)</span></code></pre></div>
+<h2 id="quick-start">Quick Start</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(covidanalysis)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co"># Launch the interactive Shiny app</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">run_app</span>()</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; Loading required package: shiny</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;dplyr&#39;</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:stats&#39;:</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;     filter, lag</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:base&#39;:</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; Listening on http://127.0.0.1:4834</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt; Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt; ℹ Please use `linewidth` instead.</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt; This warning is displayed once every 8 hours.</span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</span></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co"># Or explore the data directly</span></span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="fu">data</span>(ob_timings_summary)</span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="fu">head</span>(ob_timings_summary)</span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co">#&gt;   R0  VE coverage t50_days  t95_days</span></span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a><span class="co">#&gt; 1  5 0.5      0.1 46.27000 198.82600</span></span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="co">#&gt; 2  6 0.5      0.1 29.48333 128.46667</span></span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="co">#&gt; 3  7 0.5      0.1 25.76167 108.34800</span></span>
+<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a><span class="co">#&gt; 4  8 0.5      0.1 20.28667  87.98933</span></span>
+<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="co">#&gt; 5  9 0.5      0.1 15.72000  68.72667</span></span>
+<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a><span class="co">#&gt; 6 10 0.5      0.1 15.06333  64.61433</span></span></code></pre></div>
 <h2 id="usage">Usage</h2>
 <h3 id="launch-the-shiny-application">Launch the Shiny Application</h3>
 <p>To launch the interactive application:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(covidanalysis)</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">run_app</span>()</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt; Listening on http://127.0.0.1:4131</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">library</span>(covidanalysis)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">run_app</span>()</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; Listening on http://127.0.0.1:4834</span></span></code></pre></div>
 <p>The application allows you to explore outbreak timing distributions
 and breach probabilities across different R₀ values, vaccine efficacy
 levels, and population vaccination coverage. You can visualize how the
@@ -639,40 +670,42 @@ parameters, and compare the risk profiles of traveller-initiated versus
 worker-initiated breaches.</p>
 <h3 id="access-the-data">Access the Data</h3>
 <p>The package includes three datasets from the Zenodo database:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">library</span>(covidanalysis)</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">data</span>(ob_timings)</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">data</span>(ob_timings_summary)</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="fu">data</span>(ob_probs_travellers)</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="fu">head</span>(ob_timings)</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt;   breach_times R0  VE coverage</span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; 1    43.643333  5 0.5      0.1</span></span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt; 2    85.240000  5 0.5      0.1</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; 3    32.470000  5 0.5      0.1</span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; 4     8.676667  5 0.5      0.1</span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt; 5    12.136667  5 0.5      0.1</span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt; 6   113.160000  5 0.5      0.1</span></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="fu">head</span>(ob_timings_summary)</span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt;   R0  VE coverage t50_days  t95_days</span></span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt; 1  5 0.5      0.1 46.27000 198.82600</span></span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt; 2  6 0.5      0.1 29.48333 128.46667</span></span>
-<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt; 3  7 0.5      0.1 25.76167 108.34800</span></span>
-<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt; 4  8 0.5      0.1 20.28667  87.98933</span></span>
-<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#&gt; 5  9 0.5      0.1 15.72000  68.72667</span></span>
-<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co">#&gt; 6 10 0.5      0.1 15.06333  64.61433</span></span>
-<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="fu">head</span>(ob_probs_travellers)</span>
-<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="co">#&gt;   R0  VE coverage traveller_ob_prob worker_ob_prob</span></span>
-<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a><span class="co">#&gt; 1  5 0.5      0.1           0.00903        0.14613</span></span>
-<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="co">#&gt; 2  6 0.5      0.1           0.01352        0.16433</span></span>
-<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="co">#&gt; 3  7 0.5      0.1           0.01370        0.17484</span></span>
-<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="co">#&gt; 4  8 0.5      0.1           0.01881        0.18244</span></span>
-<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a><span class="co">#&gt; 5  9 0.5      0.1           0.02028        0.19702</span></span>
-<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="co">#&gt; 6 10 0.5      0.1           0.02102        0.20334</span></span></code></pre></div>
-<p>The ob_timings dataset contains the raw distribution of breach times
-from simulation. The ob_timings_summary dataset provides statistical
-summaries of these distributions at each parameter combination,
-expressed as the 50th and 95th percentiles. The ob_probs_travellers
-dataset quantifies the probability of outbreaks resulting from each type
-of breach.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">library</span>(covidanalysis)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">data</span>(ob_timings)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">data</span>(ob_timings_summary)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="fu">data</span>(ob_probs_travellers)</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="fu">head</span>(ob_timings)</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt;   breach_times R0  VE coverage</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; 1    43.643333  5 0.5      0.1</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; 2    85.240000  5 0.5      0.1</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; 3    32.470000  5 0.5      0.1</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; 4     8.676667  5 0.5      0.1</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; 5    12.136667  5 0.5      0.1</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt; 6   113.160000  5 0.5      0.1</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="fu">head</span>(ob_timings_summary)</span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt;   R0  VE coverage t50_days  t95_days</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt; 1  5 0.5      0.1 46.27000 198.82600</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt; 2  6 0.5      0.1 29.48333 128.46667</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt; 3  7 0.5      0.1 25.76167 108.34800</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="co">#&gt; 4  8 0.5      0.1 20.28667  87.98933</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="co">#&gt; 5  9 0.5      0.1 15.72000  68.72667</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="co">#&gt; 6 10 0.5      0.1 15.06333  64.61433</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="fu">head</span>(ob_probs_travellers)</span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="co">#&gt;   R0  VE coverage traveller_ob_prob worker_ob_prob</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="co">#&gt; 1  5 0.5      0.1           0.00903        0.14613</span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="co">#&gt; 2  6 0.5      0.1           0.01352        0.16433</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="co">#&gt; 3  7 0.5      0.1           0.01370        0.17484</span></span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="co">#&gt; 4  8 0.5      0.1           0.01881        0.18244</span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="co">#&gt; 5  9 0.5      0.1           0.02028        0.19702</span></span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a><span class="co">#&gt; 6 10 0.5      0.1           0.02102        0.20334</span></span></code></pre></div>
+<ul>
+<li><code>ob_timings</code>: Raw distribution of breach times from
+simulation, showing variability in outbreak timing</li>
+<li><code>ob_timings_summary</code>: Statistical summaries (50th and
+95th percentiles) of outbreak timing at each parameter combination</li>
+<li><code>ob_probs_travellers</code>: Outbreak probabilities resulting
+from traveller and worker breach pathways</li>
+</ul>
 <h2 id="data-source">Data Source</h2>
 <p>All data in this package are sourced from the Zenodo database:</p>
 <p>Zachreson, C., Shearer, F. M., Price, D. J., Lydeamore, M. J.,
@@ -699,7 +732,7 @@ multiple test occasions.</p>
 website</a>.</p>
 <p>For detailed analysis and interpretation of results, see the package
 vignette:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">&quot;covidanalysis_vignette&quot;</span>, <span class="at">package =</span> <span class="st">&quot;covidanalysis&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">&quot;covidanalysis_vignette&quot;</span>, <span class="at">package =</span> <span class="st">&quot;covidanalysis&quot;</span>)</span></code></pre></div>
 <h2 id="license">License</h2>
 <p>This package is licensed under the MIT License - see the LICENSE file
 for details.</p>

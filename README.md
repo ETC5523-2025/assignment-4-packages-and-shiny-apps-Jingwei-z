@@ -29,6 +29,41 @@ with:
 remotes::install_github("ETC5523-2025/assignment-4-packages-and-shiny-apps-Jingwei-z")
 ```
 
+## Quick Start
+
+``` r
+library(covidanalysis)
+
+# Launch the interactive Shiny app
+run_app()
+#> Loading required package: shiny
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+#> 
+#> Listening on http://127.0.0.1:4834
+#> Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+#> ℹ Please use `linewidth` instead.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
+
+# Or explore the data directly
+data(ob_timings_summary)
+head(ob_timings_summary)
+#>   R0  VE coverage t50_days  t95_days
+#> 1  5 0.5      0.1 46.27000 198.82600
+#> 2  6 0.5      0.1 29.48333 128.46667
+#> 3  7 0.5      0.1 25.76167 108.34800
+#> 4  8 0.5      0.1 20.28667  87.98933
+#> 5  9 0.5      0.1 15.72000  68.72667
+#> 6 10 0.5      0.1 15.06333  64.61433
+```
+
 ## Usage
 
 ### Launch the Shiny Application
@@ -39,7 +74,7 @@ To launch the interactive application:
 library(covidanalysis)
 run_app()
 #> 
-#> Listening on http://127.0.0.1:4131
+#> Listening on http://127.0.0.1:4834
 ```
 
 The application allows you to explore outbreak timing distributions and
@@ -84,12 +119,12 @@ head(ob_probs_travellers)
 #> 6 10 0.5      0.1           0.02102        0.20334
 ```
 
-The ob_timings dataset contains the raw distribution of breach times
-from simulation. The ob_timings_summary dataset provides statistical
-summaries of these distributions at each parameter combination,
-expressed as the 50th and 95th percentiles. The ob_probs_travellers
-dataset quantifies the probability of outbreaks resulting from each type
-of breach.
+- `ob_timings`: Raw distribution of breach times from simulation,
+  showing variability in outbreak timing
+- `ob_timings_summary`: Statistical summaries (50th and 95th
+  percentiles) of outbreak timing at each parameter combination
+- `ob_probs_travellers`: Outbreak probabilities resulting from traveller
+  and worker breach pathways
 
 ## Data Source
 
