@@ -31,7 +31,7 @@ remotes::install_github("ETC5523-2025/assignment-4-packages-and-shiny-apps-Jingw
 
 ## Quick Start
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(covidanalysis)
 
 # Launch the interactive Shiny app

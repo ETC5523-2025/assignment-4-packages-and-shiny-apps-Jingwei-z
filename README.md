@@ -36,21 +36,6 @@ library(covidanalysis)
 
 # Launch the interactive Shiny app
 run_app()
-#> Loading required package: shiny
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
-#> 
-#> Listening on http://127.0.0.1:4834
-#> Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-#> ℹ Please use `linewidth` instead.
-#> This warning is displayed once every 8 hours.
-#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
 
 # Or explore the data directly
 data(ob_timings_summary)
